@@ -27,6 +27,13 @@ module Preferable::Model
       self._preferable   = self._preferable.dup if self._preferable
       self._preferable ||= Preferable::Schema.new
       self._preferable.instance_eval(&block)
+
+      # Add dynamic methods.
+      self._preferable.keys.each do |key|
+        define_method("preferable_#{key}") do
+          self[key]
+        end
+      end
     end
 
   end
