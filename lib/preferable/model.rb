@@ -31,7 +31,11 @@ module Preferable::Model
       # Add dynamic methods.
       self._preferable.keys.each do |key|
         define_method("preferable_#{key}") do
-          self[key]
+          self.preferences[key]
+        end
+
+        define_method("preferable_#{key}=") do |value|
+          self.preferences[key] = value
         end
       end
     end
