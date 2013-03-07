@@ -26,7 +26,7 @@ class Preferable::Set < Hash
     field = find_field(name) || return
     value = field.type_cast(value)
 
-    if value.nil? || field.invalid?(value) || field.default?(value)
+    if value.nil? || field.invalid?(value)
       delete field.name
     else
       super field.name, value

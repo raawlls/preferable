@@ -71,13 +71,6 @@ describe Preferable::Set do
       subject.should == { "color" => '222222' }
     end
 
-    it 'should unset key when defaults are assigned' do
-      subject[:color] = '222222'
-      subject.should == { "color" => '222222' }
-      subject[:color] = '444444'
-      subject.should == {}
-    end
-
     it 'should unset key when nil is assigned' do
       subject[:color] = '222222'
       subject.should == { "color" => '222222' }
